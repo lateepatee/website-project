@@ -1,0 +1,462 @@
+:root {
+    --primary: #8B5E3C;
+    --accent: #6A9C95;
+    --secondary: #F6F2EE;
+    --background: #FBF9F6;
+    --card-bg: #FFF8F4;
+    --text-dark: #2b2b2b;
+    --text-light: #6b6b6b;
+    --radius: 1rem;
+    --max-width: 1200px;
+    --font-main: "Marimekko", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* FONTTIASENNUKSET */
+@font-face {
+    font-family: "Marimekko";
+    src: url("fonts/Marimekko-Thin.woff2") format("woff2");
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Marimekko";
+    src: url("fonts/Marimekko-Book.woff2") format("woff2");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Marimekko";
+    src: url("fonts/Marimekko-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* YLEISET TYYLIT */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    margin: 0;
+    color: var(--text-dark);
+    background: var(--background);
+    line-height: 1.7;
+}
+
+p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* HEADER & NAV */
+header nav {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(251, 249, 246, 0.95);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    min-height: 4.5rem;
+}
+
+header nav h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    flex: 1;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+header ul li a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+    position: relative;
+}
+
+header ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+header ul li a:hover::after,
+header ul li a.active::after {
+    width: 100%;
+}
+
+header ul li a:hover,
+header ul li a.active {
+    color: var(--primary);
+}
+
+/* Somemet */
+.social-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.instagram-link,
+.facebook-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    /* PAKOTETTU LEVEYS PIENILLE NAPEILLE */
+    min-width: 110px;
+}
+
+.instagram-link:hover,
+.facebook-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.instagram-link {
+    background: linear-gradient(90deg, #f58529 0%, #dd2a7b 45%, #515bd4 100%);
+}
+
+.facebook-link {
+    background: #1877F2;
+}
+
+/* SECTIONS */
+section {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: block;
+    letter-spacing: -0.02em;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--accent);
+    width: 60px;
+    margin: 0.8rem auto 0;
+    border-radius: 4px;
+}
+
+#products+#products-astiat,
+#products-astiat+#features,
+#features+#contact-info {
+    padding-top: 0;
+}
+
+/* HERO */
+#hero {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* TUOTEKORTIT */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.product-card {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: var(--radius);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(139, 94, 60, 0.15);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(139, 94, 60, 0.1);
+    border-color: var(--primary);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 0.7rem;
+    cursor: zoom-in;
+}
+
+/* VIDEOT */
+.about-video video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: var(--radius);
+    display: block;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.tuote-video {
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    border-radius: 1rem;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* YHTEYSTIEDOT */
+.opening-hours {
+    margin: 2rem auto;
+    background: var(--secondary);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    max-width: 400px;
+}
+
+.contact-card-simple {
+    background: var(--card-bg);
+    padding: 3.5rem 2rem;
+    border-radius: var(--radius);
+    text-align: center;
+    border: 1px solid rgba(139, 94, 60, 0.15);
+}
+
+/* NÄYTÄ REITTI -PAINIKE */
+#contact-info button.open-map {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#contact-info button.open-map:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 94, 60, 0.2);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--secondary);
+    color: var(--text-light);
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+}
+
+/* KELLUVA NAPPI */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    background: var(--primary);
+    color: white;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(139, 94, 60, 0.2);
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    background: var(--accent);
+}
+
+/* MODALS & KARTTA */
+.lightbox,
+.map-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10000;
+    transition: 0.3s;
+}
+
+.lightbox.show,
+.map-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.map-modal-content {
+    background: white;
+    width: 95%;
+    max-width: 1000px;
+    height: 80vh;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+.map-wrapper,
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.map-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    header nav {
+        flex-direction: column;
+        padding: 1.5rem;
+        min-height: auto;
+    }
+
+    header ul {
+        position: static;
+        transform: none;
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+        justify-content: center;
+    }
+}
+
+.school-project-note {
+    margin-top: 2rem;
+    color: #d64545;
+    border: 1px dashed #d64545;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    background: #fff5f5;
+    list-style: none;
+}
+
+/* AUKIOLOAIKOJEN JA SOMENAPPIEN KORJAUKSET */
+.opening-hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.opening-hours li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    list-style-type: none;
+}
+
+/* PAKOTETTU LEVEYS OTA YHTEYTTÄ -SIVUN ISOLLE NAPEILLE */
+.social-buttons-large a {
+    padding: 1rem 2rem;
+    font-size: 1.05rem;
+    min-width: 220px;
+}

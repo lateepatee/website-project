@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kulmakaappi Oy - Ota yhteyttä</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header id="top">
+        <nav>
+            <h1><a href="index.html" class="logo-link">Kulmakaappi Oy</a></h1>
+            <ul>
+                <li><a href="index.html#about">Tietoa meistä</a></li>
+                <li><a href="index.html#features">Palvelut</a></li>
+                <li><a href="lomake.html" class="active">Ota yhteyttä</a></li>
+                <li><a href="index.html#contact-info">Yhteystiedot</a></li>
+            </ul>
+            <!-- Tyhjä div pitää valikon keskellä, koska se on flex-lapsi kuten logo -->
+            <div class="social-links"></div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-page">
+            <h2>Ota yhteyttä</h2>
+            <div class="contact-intro center-text">
+                <p>Onko sinulla kysyttävää tuotteistamme, ompelupalvelusta tai haluatko kenties varata ajan yksityiseen
+                    esittelyyn? Ota meihin rohkeasti yhteyttä, palvelemme sinua mielellämme!</p>
+            </div>
+
+            <div class="contact-grid-simple">
+                <!-- Puhelin -->
+                <div class="contact-card-simple">
+                    <div class="icon-circle">📞</div>
+                    <h3>Soita meille</h3>
+                    <p>Vastaamme mielellämme puheluihin myymälän aukioloaikoina.</p>
+                    <a href="tel:+358453191110" class="contact-big-link">+358 45 3191110</a>
+                </div>
+
+                <!-- Sähköposti -->
+                <div class="contact-card-simple">
+                    <div class="icon-circle">✉️</div>
+                    <h3>Lähetä sähköpostia</h3>
+                    <p>Voit lähettää meille tiedusteluja sähköpostitse milloin vain.</p>
+                    <a href="mailto:kulmakaappi@kulmakaappi.fi" class="contact-big-link">kulmakaappi@kulmakaappi.fi</a>
+                </div>
+            </div>
+
+            <!-- Sometus-osio -->
+            <div class="social-cta-container">
+                <h3>Ota Kulmakaapin somet haltuun!</h3>
+                <p>Seuraa meitä Instagramissa ja Facebookissa, niin näet ensimmäisenä uusimmat tuotteet ja ajankohtaiset
+                    uutiset.</p>
+
+                <div class="social-buttons-large">
+                    <!-- Instagram -->
+                    <a class="instagram-link" href="https://www.instagram.com/kulmakaappi_oy" target="_blank"
+                        rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Seuraa Instagramissa
+                    </a>
+
+                    <!-- Facebook -->
+                    <a class="facebook-link" href="https://www.facebook.com/p/Kulmakaappi-Oy-61572258723667/"
+                        target="_blank" rel="noopener noreferrer">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        Seuraa Facebookissa
+                    </a>
+                </div>
+            </div>
+        </section>
+        <a href="#top" class="scroll-to-top" aria-label="Palaa sivun alkuun">↑</a>
+    </main>
+
+    <footer>
+        <p>© 2025 Kulmakaappi Oy</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Takaisin etusivulle</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollTopBtn = document.querySelector('.scroll-to-top');
+
+        // Nappi ilmestyy näkyviin, kun on skrollattu alaspäin
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        // Smooth scroll -toiminto napille
+        scrollTopBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</html>
