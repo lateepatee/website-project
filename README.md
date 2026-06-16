@@ -34,4 +34,4 @@ Based on the feedback received from the teacher and my own testing, I made the f
 ## 🛠️ Technologies Used
 - HTML5
 - CSS3 (Custom properties/variables)
-- Vanilla JavaScript (No frameworks)
+- Vanilla JavaScript (No frameworks)# website-project
